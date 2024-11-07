@@ -1,0 +1,38 @@
+\IncMargin{.0in}
+\begin{algorithm}[h]
+\SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
+\SetKwFunction{Union}{Union}\SetKwFunction{FindCompress}{FindCompress}
+\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+\Input{Data input $I(I_0, I_1, ..., I_{4n-1})$, Control input $S(S_0, S_1,$  ..., $S_{n})$\\\hspace{.05in}$n$ and Fredkin gate ($FRG$)}
+\Output{$4n$-to-$n$ reversible mux circuit}
+\BlankLine
+\Begin{
+$i$ = $input$, $o$ = $output$, {$j$ = 0\\}
+%
+\textbf{begin procedure} (4-to-1 reversible mux) \\
+\hspace{.3in}{{$S_j$ $\rightarrow$ $first.i.FRG.1\&2$,\\
+\hspace{.3in}$I_j \rightarrow second.i.FRG.1$, $I_{j+2} \rightarrow second.i.FRG.2$\\
+\hspace{.3in}$I_{j+1} \rightarrow third.i.FRG.1$, $I_{j+3} \rightarrow third.i.FRG.2$\\
+\hspace{.3in}$j++$\\
+
+\hspace{.3in}$S_j$ $\rightarrow$ $first.i.FRG.3$,\\
+\hspace{.3in}$second.o.FRG.1$ $\rightarrow$ $second.i.FRG.3$,\\
+\hspace{.3in}$second.o.FRG.2$ $\rightarrow$ $third.i.FRG.3$,\\
+}
+}
+\hspace{.3in}\Return{
+$second.o.FRG.3$ $\rightarrow$ Desire output \\\hspace{.9in} $remaining.FRG.o$ $\rightarrow$ garbage outputs.\\
+}
+\textbf{end procedure\\
+}
+\For{$i\leftarrow 0$ \KwTo $n-1$}
+{
+\textbf{goto} line 6
+}
+\Return{$4n$-to-$n$ reversible mux circuit}
+}
+\caption{Algorithm for the proposed 4$n$-to-$n$ RFMux for FPGA, \textbf{\emph{reversible mux(I, S, F2G, FRG)}}}
+\end{algorithm}
+ \DecMargin{.0in}
+%
+%

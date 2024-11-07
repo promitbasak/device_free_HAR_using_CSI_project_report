@@ -1,0 +1,32 @@
+\chapter{CONCLUSION AND FUTURE SCOPE}
+ \label{Chapter 6}
+ \lhead{ Chapter 6. \emph{Conclusion and Future Scope}}
+\label{intro}
+
+In this project, we have proposed a non-contact fall detection and human activity recognition system using embedded devices. The objective of our project was to overcome the drawbacks of the now popular systems that use wearable devices and/or computer vision. Using esp32 and its Wi-Fi capabilities, we have implemented a robust fall detection system that is also able to recognize different activities, and is able to detect if a room is empty. We have analyzed CSI data collected from two esp32 microcontrollers and gone through an elaborate process of cleaning, preprocessing, feature extraction, feature selection and classification using various machine learning models. Through this process, we were able to perform accurate human activity recognition and fall detection. The use of embedded devices made the system open to heavy modifications and lowered its deployment cost, making it highly flexible and affordable.
+
+\section{Discussion}
+In this project, we conducted two different tasks and achieved great accuracy. For the first task, fall detection, the dataset is quite balanced. But for the human activity recognition task, the dataset was moderately unbalanced which led to lower accuracy. The confusion matrices in \ref{Fig 5.5} and \ref{Fig 5.7} also depict the same fact.
+
+Although our system is able to recognize different human activities including falls as shown in Chapter 5, our primary goal for this project is fall detection. The reason behind this is that no CSI-based system is able to localize the activities, so the opportunity for real world application is limited for most activities. We can also see from the works of Li et el.\cite{8873550} that accuracy of Wi-Fi CSI-based activity detection systems drops considerably when multiple users perform different activities at the same time. But in case of fall activity, these limitations are irrelevant as in an event of a fall, immediate attention is required regardless.
+
+
+\section{Future Scopes}
+Our proposed system is effective, yet has much room for improvement. The limitations we aim to overcome and the improvements we want to implement in the future are as follows:
+
+\begin{enumerate}
+  \item The devices we have used to implement the system use PCB antennas which are not very effective. Using external omnidirectional antennas would increase the effectiveness of the antenna even more.
+  
+  \item We were able to send and receive packets from one device to another only at relatively small distances and in LoS condition. The reason behind this is that the devices are low power consuming devices. Designing a device that is able to send more powerful signals will solve these problems. 
+
+  \item Designing an enclosure that houses a power system would allow deploying the system easily in various locations.
+  
+  \item We have only collected data in a controlled environment. Collecting and analyzing data from uncontrolled environments where a lot more moving objects are present would make the system more robust.
+
+  \item Implementing some sort of GUI or interfacing the system with other devices such as smart phones would make this system more user friendly.
+  
+  \item Although we have been able to successfully recognize different activities, we are unable to localize the activity. This can be done by using multi-dimensional information such as ToF(Time of Flight), AoA(Angle of arrival) and Doppler shift\cite{mDTrack}.
+  
+\end{enumerate}
+
+

@@ -1,0 +1,164 @@
+\documentclass[a4paper, 12pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
+\graphicspath{{figure/}}  % Location of the graphics files (set up for graphics to be in PDF format)
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
+\usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{algpseudocode}
+\usepackage{mathtools}
+
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{sectsty}
+\usepackage[at]{easylist}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{gensymb}
+\chapterfont{\centering\MakeUppercase}
+
+\newcommand\NoDo{\renewcommand\algorithmicdo{}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\hypersetup{urlcolor=black, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+
+%% ----------------------------------------------------------------
+
+
+\begin{document}
+\frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
+\begin{titlepage}
+   \begin{center}
+       \vspace{1cm}
+       \Huge
+       \textbf{An Embedded Approach to Fall Detection and Human Activity Recognition using Wi-Fi Channel State Information}
+        
+      \normalsize    
+       \vspace{0.5cm}
+        (This project report has been submitted in partial fulfillment of the requirements for the degree of Bachelor of Science in Electrical and Electronic Engineering)
+            
+       \vspace{1.5cm}
+       \includegraphics[width=3.5cm, height=4cm]{university.png}
+       
+       \Large
+       \vspace{1cm}
+       \textbf{Submitted By}    
+       
+       
+       \large
+       \textbf{Exam Roll: 63969}\hfill \textbf{Exam Roll: 63949} 
+       
+       \textbf{Reg No: 2017614892}\hfill \textbf{Reg No: 2017114842}
+       
+       \textbf{Session: 2017-18}\hfill \textbf{Session: 2017-18}
+       
+       \vspace{1cm}
+       
+       \textbf{Dept. of Electrical and Electronic Engineering}
+       
+       \textbf{University of Dhaka}
+
+        \textbf{June 27, 2022}
+       
+       
+   \end{center}
+\end{titlepage}
+
+%% ----------------------------------------------------------------
+
+\setstretch{1.2}  % It is better to have smaller font and larger line spacing than the other way round
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{}  % Clears all page headers and footers
+\rhead{\thepage}  % Sets the right side header to show the page number
+\lhead{}  % Clears the left side page header
+
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+
+\addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
+\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+
+\title{}
+\abstract{
+Fall detection is an essential part of any elderly or patient assistance system. Human activity recognition techniques are widely used to implement fall detection systems. Most solutions employ wearable devices or cameras to collect data, both of which possess various critical drawbacks. We propose a device-free fall detection system using WiFi channel state information(CSI) which lacks the drawbacks of mentioned solutions yet provides competitive performance. We used two embedded devices(ESP32) to collect CSI (Channel State Information) as an embedded approach provides more flexibility in case of deployment. We recorded data while 13 volunteers performed various tasks. After rigorous preprocessing involving re-sampling, phase calibration, amplitude denoising, filtering, feature extraction, feature selection, and classification, we were able to achieve an F1 score of 98.5\% in 10-fold cross-validation for fall detection and 96.9\% for human activity recognition.
+}
+
+\clearpage  % Abstract ended, start a new page
+%% ----------------------------------------------------------------
+
+\setstretch{1.3}  % Reset the line-spacing to 1.3 for body text (if it has changed)
+
+
+
+\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+\clearpage  % Start a new page
+
+
+\clearpage
+\pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+
+%% ----------------------------------------------------------------
+\lhead{\emph{Contents}}  % Set the left side page header to "Contents"
+\tableofcontents  % Write out the Table of Contents
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Figures}}  % Set the left side page header to "List if Figures"
+\listoffigures  % Write out the List of Figures
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Tables}}  % Set the left side page header to "List of Tables"
+\listoftables  % Write out the List of Tables
+
+
+
+\setstretch{1.4}  % Return the line spacing back to 1.3
+
+\pagestyle{empty}  % Page style needs to be empty for this page
+%\dedicatory{For/Dedicated to/To my\ldots}
+
+\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+
+
+%% ----------------------------------------------------------------
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\pagestyle{fancy}  % Return the page headers back to the "fancy" style
+
+
+\input{./Chapters/Chapter1}
+
+\input{./Chapters/Chapter2}
+
+\input{./Chapters/Chapter3}
+
+\input{./Chapters/Chapter4}
+
+\input{./Chapters/Chapter5}
+
+\input{./Chapters/Chapter6} 
+
+%\input{./Chapters/Chapter7} 
+
+
+
+\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+\backmatter
+
+%% ----------------------------------------------------------------
+\label{Bibliography}
+\lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,mybib}
+\clearpage
+\input{Appendix}
+
+\end{document}  % The End
+%% ----------------------------------------------------------------
+
